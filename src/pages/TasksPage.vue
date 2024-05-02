@@ -18,18 +18,21 @@
 
                     </div>
 
-                    <!-- List of tasks -->
+                    <!-- List of uncompleted tasks -->
+                    
+                  <Tasks :tasks="uncompletedTasks"/>
+                  
+                  
+                  <!-- show toggle button -->
+                  
+                  
+                  
+                  
+                  <!-- List of completed tasks -->
+                  <Tasks :tasks="completedTasks"/>
 
-                    <div class="card mt-2">
 
-                        <ul class="list-group list-group-flush">
-
-                            <Task v-for="task in tasks" :task="task" :key="task.id"/>
-
-                        </ul>
-
-                    </div>
-
+                
                 </div>
 
             </div>
@@ -42,9 +45,9 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import {allTasks} from "../http/task-api"
-import Task from "../components/tasks/Task.vue"
+import Tasks from "../components/tasks/Tasks.vue"
 
 
 const tasks = ref([])
@@ -54,8 +57,8 @@ onMounted(async()=> {
     
     tasks.value = data.data
 })
+
+
+const uncompletedTasks = computed(() => tasks.value.filter(task => !task.is_completed))
+const completedTasks = computed(() => tasks.value.filter(task => task.is_completed))
 </script>
-
-<style>
-
-</style>
