@@ -2,7 +2,7 @@
 
 import Navbar  from './components/Navbar.vue';
 import Footer  from './components/Footer.vue';
-import TasksPage from './pages/TasksPage.vue';
+// import TasksPage from './pages/TasksPage.vue';
 
 
 </script>
@@ -10,7 +10,8 @@ import TasksPage from './pages/TasksPage.vue';
 <template>
  <div>
   <Navbar/>
-  <TasksPage/>
+  <!-- <TasksPage/> -->
+  <router-view/>
   <Footer/>
  </div>
 </template>
