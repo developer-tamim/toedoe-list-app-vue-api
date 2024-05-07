@@ -6,17 +6,17 @@ import RegisterPage from "../pages/RegisterPage.vue"
 const routes = [
     {
         path: "/tasks",
-        comments: TasksPage,
+        component: TasksPage,
         name: 'tasks'
     },
     {
         path: "/login",
-        comments: LoginPage,
+        component: LoginPage,
         name: 'login'
     },
     {
         path: "/register",
-        comments: RegisterPage,
+        component: RegisterPage,
         name: 'register'
     },
 ]
